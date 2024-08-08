@@ -3,6 +3,38 @@ title: "r-data-exploration"
 author: "BJ"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
+## Adding libraries
+```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+
+```{r}
+#exploring ----
+
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skimr::skim(diamonds)
+```
+
+```{r}
+GGally::ggpairs(diamonds,
+                columns = 3:6)
+
+ggplot(data = diamonds, aes(x = price, y = carat)) +
+         geom_jitter()
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat)) +
+  geom_histogram()
+```
 
